@@ -1,0 +1,24 @@
+{
+	"FileVersion": 3,
+	"Version": 1,
+	"VersionName": "1.0",
+	"FriendlyName": "ScarletStateMachines",
+	"Description": "A simple State Machine framework",
+	"Category": "Other",
+	"CreatedBy": "AkarFire / K Scarlet",
+	"CreatedByURL": "",
+	"DocsURL": "",
+	"MarketplaceURL": "",
+	"SupportURL": "",
+	"CanContainContent": true,
+	"IsBetaVersion": false,
+	"IsExperimentalVersion": false,
+	"Installed": false,
+	"Modules": [
+		{
+			"Name": "ScarletStateMachines",
+			"Type": "Runtime",
+			"LoadingPhase": "Default"
+		}
+	]
+}
