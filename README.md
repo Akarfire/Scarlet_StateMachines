@@ -37,7 +37,7 @@ enum class ECodeExampleStateEnum : uint8
 
 Example of a Blueprint state enum:
 
-!(Blueprint Enum)[Images/BlueprintEnum.png]
+!(BlueprintEnum)[./Images/BlueprintEnum.png]
 
 #### States
 
