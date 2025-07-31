@@ -89,7 +89,7 @@ public:
 
 Example in Blueprints:
 
-![[BlueprintState.png]]
+![BlueprintState](Images/BlueprintState.png)
 
 
 #### State Machine
@@ -112,7 +112,7 @@ bool Condition_State1_State2() { return TestValue > 0.f; }
 
 Blueprint example:
 
-![[BlueprintConditionFunction.png]]
+![BlueprintConditionFunction](Images/BlueprintConditionFunction.png)
 
 
 ##### Virtual Methods
@@ -263,14 +263,14 @@ public:
 
 Example in Blueprints:
 
-![[BlueprintStateMachine.png]]
+![BlueprintStateMachine](Images/BlueprintStateMachine.png)
 
 ---
 ### Using State Machines
 
 To use a state machine, one must first construct it. If using Blueprints, one can use `ScarletStateMachines_Utilities` function library (Option 1):
 
-![[BlueprintCreatingStateMachines.png]]
+![BlueprintCreatingStateMachines](Images/[BlueprintCreatingStateMachines.png)
 
 
 *Note: Usually state machines can be initialized right after being created, but if your case requires later initialization, it is achievable by unchecking `AutoInit` flag.*
@@ -304,7 +304,7 @@ void USomeClass::Tick(float DeltaTime, ...)
 }
 ```
 
-![[BlueprintUpdatingStateMachine.png]]
+![BlueprintUpdatingStateMachine](Images/BlueprintUpdatingStateMachine.png)
 
 Updating the state machine evaluates state transitions and calls `UpdateState` on the active state.
 
