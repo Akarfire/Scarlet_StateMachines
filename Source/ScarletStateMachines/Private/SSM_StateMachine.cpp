@@ -17,16 +17,18 @@ void USSM_StateMachine::InitStateMachine()
 // Call this every time the state machine should be updated (for example every frame)
 void USSM_StateMachine::UpdateStateMachine(float DeltaTime)
 {
+    bool TransitionHappened = false;
+
     if (BufferedNewState != 0)
     {
         StateTransition(BufferedNewState);
+        TransitionHappened = true;
+
         BufferedNewState = 0;
     }
 
     else if (TransitionMap.Contains(ActiveState) && IsValid(States[ActiveState]))
     {
-        bool TransitionHappened = false;
-
         if (!States[ActiveState]->IsLocked())
         {
             for (auto& Transition: TransitionMap[ActiveState])
@@ -39,11 +41,11 @@ void USSM_StateMachine::UpdateStateMachine(float DeltaTime)
                     break;
                 }
             }
-        }
-
-        if (!TransitionHappened)
-            States[ActiveState]->UpdateState(DeltaTime);
+        }   
     }
+
+    if (!TransitionHappened)
+        States[ActiveState]->UpdateState(DeltaTime);
 
     OnUpdateStateMachine(DeltaTime);
 }
@@ -126,4 +128,17 @@ void USSM_StateMachine::RegisterMultipleTransitions(const TArray<FStateTransitio
 {
     for (auto& Transition: InStateTransitions)
         RegisterTransitionSourced(Transition);
+}
+
+// Automatically finds and registers existing local transition condition functions with the specified naming convention
+// Default naming: "Condition_State1_State2"
+void USSM_StateMachine::AutoTransitionRegistration(const TArray<FString> StateNames, const FString& ConditionFunctionNamePrefix, const FString& ConditionFunctionNameStateConnector)
+{
+    for (uint8 State1 = 0; State1 < StateNames.Num(); State1++)
+        for (uint8 State2 = 0; State2 < StateNames.Num(); State2++)
+        {
+            FString ConditionFunctionName = ConditionFunctionNamePrefix + StateNames[State1] + ConditionFunctionNameStateConnector + StateNames[State2];
+
+            RegisterTransitionLocal(State1, State2, FName(ConditionFunctionName));
+        }
 }

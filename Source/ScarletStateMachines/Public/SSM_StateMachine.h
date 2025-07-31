@@ -89,7 +89,7 @@ protected:
 	void StateTransition(uint8 InNewState);
 
 	// Processes all of the transitions of the given state
-	void UpdateTransitions(uint8 InState);
+	void UpdateTransitions(uint8 InState) {}
 
 	// Registers transition with condition function located in the ConditionFunctionSourceObject UObject
 	void RegisterTransitionSourced(const FStateTransition& InStateTransition);
@@ -114,12 +114,12 @@ public:
 
 	// Called when the state machine is initialized (after the main init) (to be overriden)
 	UFUNCTION(BlueprintCallable, BlueprintNativeEvent, Category = "ScarletStateMachines|StateMachine")
- 	void OnInitStateMachine();
+	void OnInitStateMachine();
 	virtual void OnInitStateMachine_Implementation() {}
 
 	// Called every time the state machine is updated (after the main update) (to be overriden)
 	UFUNCTION(BlueprintCallable, BlueprintNativeEvent, Category = "ScarletStateMachines|StateMachine")
- 	void OnUpdateStateMachine(float DeltaTime);
+	void OnUpdateStateMachine(float DeltaTime);
 	virtual void OnUpdateStateMachine_Implementation(float DeltaTime) {}
 
 
@@ -164,4 +164,9 @@ public:
 	// Registers multiple new transitions between states
 	UFUNCTION(BlueprintCallable, Category = "ScarletStateMachines|StateMachine")
 	void RegisterMultipleTransitions(const TArray<FStateTransition>& InStateTransitions);
+
+	// Automatically finds and registers existing local transition condition functions with the specified naming convention
+	// Default naming: "Condition_State1_State2"
+	UFUNCTION(BlueprintCallable, Category = "ScarletStateMachines|StateMachine")
+	void AutoTransitionRegistration(const TArray<FString> StateNames, const FString& ConditionFunctionNamePrefix = "Condition_", const FString& ConditionFunctionNameStateConnector = "_");
 };

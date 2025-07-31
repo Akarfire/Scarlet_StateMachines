@@ -159,8 +159,11 @@ public:
 		
 		});
 
+		//Alternatively you can use automatic Transition Registration:
+		//AutoTransitionRegistration({"None", "One", "Two", "Three"}, "Condition_", "_");
+
 		// Set Default State
-		ForceCallStateTransition( (uint8)ECodeExampleStateEnum::One ); // Can just une 1 instead of (uint8)ECodeExampleStateEnum::One, but this way it has a name
+		ForceCallStateTransition( (uint8)ECodeExampleStateEnum::One ); // Can just use "1" instead of "(uint8)ECodeExampleStateEnum::One", but this way it has a name
 	}
 
 	// Called every time the state machine is updated (after the main update)
