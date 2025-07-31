@@ -9,6 +9,14 @@ Scarlet State Machines is an Unreal Engine 5 Plugin, implementing simplistic but
 * **Independent Condition Handling** - Conditions for inter-state transitions are handled separately from state logic, further improving modularity.
 
 ---
+# Installation
+
+1. Downolad the release .zip archive;
+2. Unpack it;
+3. Put the contents (ScarletStateMachines folder) into your project's Plugins folder;
+4. Launch the project.
+
+---
 # Usage
 
 *Plugin includes example state machines for both C++ and Blueprints.*
