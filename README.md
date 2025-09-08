@@ -278,7 +278,7 @@ Example in Blueprints:
 
 To use a state machine, one must first construct it. If using Blueprints, one can use `ScarletStateMachines_Utilities` function library (Option 1):
 
-![BlueprintCreatingStateMachines](Images/[BlueprintCreatingStateMachines.png)
+![BlueprintCreatingStateMachines](Images/BlueprintCreatingStateMachines.png)
 
 
 *Note: Usually state machines can be initialized right after being created, but if your case requires later initialization, it is achievable by unchecking `AutoInit` flag.*
